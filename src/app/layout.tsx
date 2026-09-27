@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 
 import '../styles/globals.css';
 import ThemeToggle from './theme-toggle';
+import WindowControls from './window-controls';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,12 +38,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             aria-label="Ruslan Butov profile"
             className="editor-window w-fit max-w-full overflow-hidden rounded-2xl border"
           >
-            <header className="flex h-9 items-center justify-between px-3.5">
-              <div aria-hidden="true" className="flex gap-2">
-                <span className="window-dot h-3 w-3 rounded-full" />
-                <span className="window-dot h-3 w-3 rounded-full" />
-                <span className="window-dot h-3 w-3 rounded-full" />
-              </div>
+            <header className="flex h-9 items-center gap-3 px-3.5">
+              <WindowControls />
               <ThemeToggle />
             </header>
             <div className="editor-surface mx-2 mb-2 rounded-xl px-2 py-6 sm:px-6">
