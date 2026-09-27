@@ -3,12 +3,12 @@ import { type FC } from 'react';
 
 const NotFound: FC = () => {
   return (
-    <div className="flex w-96 max-w-full flex-col items-center justify-center bg-[#1e1f22] font-mono text-[#bcbec4]">
+    <div className="flex w-96 max-w-full flex-col items-center justify-center font-mono">
       <h1 className="mb-4 text-6xl font-bold">404</h1>
       <p className="mb-8 text-xl">Page not found</p>
       <Link
         href="/"
-        className="rounded border border-[#bcbec4] px-4 py-2 text-[#bcbec4] transition duration-300 hover:bg-[#bcbec4] hover:text-[#1e1f22]"
+        className="profile-link rounded border border-current px-4 py-2"
       >
         Go back home
       </Link>

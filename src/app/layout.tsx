@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import { type ReactNode } from 'react';
 
 import '../styles/globals.css';
+import ThemeToggle from './theme-toggle';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,36 +10,45 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'Ruslan Butov',
-  description: '',
+  title: 'Ruslan Butov | Senior Software Engineer',
+  description:
+    'Ruslan Butov — Senior Software Engineer based in the San Francisco Bay Area. Connect on GitHub and LinkedIn.',
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
 };
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`overflow-hidden font-sans ${inter.variable}`}>
-        <main className="flex min-h-screen items-center justify-center bg-[#3c3c3c] font-mono text-[11px] sm:text-[13px]">
-          <pre className="max-w-[90%] whitespace-pre-wrap rounded-lg bg-[#1e1f22] text-[#bcbec4] shadow-lg">
-            <div className="relative w-full">
-              <div className="flex h-8 items-center justify-between rounded-t-lg bg-[#2b2d30] px-2 text-[#bbbbbb]">
-                <div className="flex items-center space-x-2">
-                  <div className="h-3 w-3 rounded-full bg-[#787979]"></div>
-                  <div className="h-3 w-3 rounded-full bg-[#787979]"></div>
-                  <div className="h-3 w-3 rounded-full bg-[#787979]"></div>
-                  <div className="ml-2 text-xs font-medium"></div>
-                </div>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'})()`,
+          }}
+        />
+      </head>
+      <body className={`font-sans ${inter.variable}`}>
+        <main className="page-background flex min-h-svh items-center justify-center px-3 py-10 sm:px-4">
+          <section
+            aria-label="Ruslan Butov profile"
+            className="editor-window w-fit max-w-full overflow-hidden rounded-2xl border"
+          >
+            <header className="flex h-9 items-center justify-between px-3.5">
+              <div aria-hidden="true" className="flex gap-2">
+                <span className="window-dot h-3 w-3 rounded-full" />
+                <span className="window-dot h-3 w-3 rounded-full" />
+                <span className="window-dot h-3 w-3 rounded-full" />
               </div>
+              <ThemeToggle />
+            </header>
+            <div className="editor-surface mx-2 mb-2 rounded-xl px-2 py-6 sm:px-6">
+              {children}
             </div>
-            <div className="p-6">{children}</div>
-          </pre>
+          </section>
         </main>
       </body>
     </html>

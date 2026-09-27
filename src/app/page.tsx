@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const developerInfo = [
+const profileInfo = [
   { key: 'name', value: 'Ruslan Butov', special: 'underline' },
   { key: 'location', value: 'San Francisco Bay Area' },
   { key: 'position', value: 'Senior Software Engineer' },
@@ -10,39 +10,43 @@ const developerInfo = [
 
 export default function HomePage() {
   return (
-    <code>
-      <span className="text-[#ce8e6d]">export const</span>
-      <span className="text-[#c87dba]"> webDeveloper </span>
-      {'= {'}
-      {developerInfo.map(({ key, value, special, link }) => (
-        <div key={key} className="ml-4 whitespace-nowrap">
-          <span className="text-[#c87dba]">{key}</span>:{' '}
-          <span className="text-[#6aab73]">
-            &apos;
-            {link ? (
-              <Link
-                href={value}
-                className="underline hover:text-[#8adb93]"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {value}
-              </Link>
-            ) : special === 'underline' ? (
-              <>
-                Ruslan <span className="underline decoration-wavy">Butov</span>
-              </>
-            ) : (
-              value
-            )}
-            &apos;
+    <code className="block font-mono text-[11px] leading-normal sm:text-[13px]">
+      <span className="editor-line">
+        <span className="syntax-keyword">export const</span>
+        <span className="syntax-property"> profile </span>
+        {'= {'}
+      </span>
+      {profileInfo.map(({ key, value, special, link }) => (
+        <span key={key} className="editor-line">
+          <span className="block pl-4">
+            <span className="syntax-property">{key}</span>:{' '}
+            <span className="syntax-string">
+              &apos;
+              {link ? (
+                <Link
+                  href={value}
+                  className="profile-link rounded-sm underline transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {value}
+                </Link>
+              ) : special === 'underline' ? (
+                <>
+                  Ruslan{' '}
+                  <span className="underline decoration-wavy">Butov</span>
+                </>
+              ) : (
+                value
+              )}
+              &apos;
+            </span>
+            ,
           </span>
-          ,
-        </div>
+        </span>
       ))}
-      <span className="relative">
-        <span className="absolute left-0 top-[-1px] h-4 w-[0.6em] animate-blink bg-[#ced0d6]"></span>
-        <span className="color-white relative animate-blinkReverse">{'}'}</span>
+      <span className="editor-line">
+        <span className="editor-caret">{'}'}</span>
       </span>
     </code>
   );
