@@ -1,11 +1,48 @@
 {
-  "hosting": {
-    "source": ".",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "frameworksBackend": {
-      "region": "us-west1"
+  "hosting": [
+    {
+      "site": "butov-dev",
+      "source": ".",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "frameworksBackend": {
+        "region": "us-west1"
+      }
+    },
+    {
+      "site": "split-guru-butov-dev",
+      "public": "split-guru",
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "headers": [
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "no-referrer"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(css|svg|png)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=3600"
+            }
+          ]
+        }
+      ]
     }
-  },
+  ],
   "functions": [
     {
       "source": "functions",
