@@ -102,7 +102,7 @@ const AGENTS: { id: string; icon: ReactNode }[] = [
 
 export default function WindowControls() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const hideTimer = useRef<number>();
+  const hideTimer = useRef<number | undefined>(undefined);
   const pointerType = useRef('mouse');
   const opening = useRef(false);
 
@@ -117,6 +117,8 @@ export default function WindowControls() {
   // Typewriter: delete the current line, then type the target one.
   useEffect(() => {
     if (count === 0 && line !== target) {
+      // Reset the typewriter target only after the previous line is erased.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (target) setLine(target);
       return;
     }
