@@ -110,11 +110,13 @@ h3 {
 }
 
 p,
-ul {
+ul,
+ol {
   margin: 0.5rem 0 0.9rem;
 }
 
-ul {
+ul,
+ol {
   padding-left: 1.3rem;
 }
 
@@ -186,6 +188,27 @@ a {
 .button.plain {
   background: var(--surface);
   color: var(--accent);
+}
+
+.shot {
+  margin: 1.75rem auto;
+  text-align: center;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 1.75rem;
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.shot figcaption {
+  margin-top: 0.6rem;
+  color: var(--secondary);
+  font-size: 0.9rem;
 }
 
 footer {
