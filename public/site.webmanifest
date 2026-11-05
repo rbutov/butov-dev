@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "butov.dev",
+  "short_name": "butov.dev",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -11,9 +11,15 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone"
 }

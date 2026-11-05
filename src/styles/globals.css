@@ -389,3 +389,23 @@ body {
     transition: opacity 0.2s linear;
   }
 }
+
+/* butov.dev mark in the title bar: follows the theme like the rest of the chrome */
+.site-logo {
+  display: block;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+.site-logo svg {
+  display: block;
+}
+.site-logo-tile {
+  fill: var(--text);
+}
+.site-logo-mark {
+  fill: var(--chrome);
+}
+.site-logo:focus-visible {
+  outline: 2px solid var(--property);
+  outline-offset: 2px;
+}

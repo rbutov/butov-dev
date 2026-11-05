@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import { type ReactNode } from 'react';
 
 import '../styles/globals.css';
+import Logo from './logo';
 import ThemeToggle from './theme-toggle';
 import WindowControls from './window-controls';
 
@@ -14,7 +15,33 @@ export const metadata = {
   title: 'Ruslan Butov | Senior Software Engineer',
   description:
     'Ruslan Butov — Senior Software Engineer based in the San Francisco Bay Area. Connect on GitHub and LinkedIn.',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }],
+  metadataBase: new URL('https://butov.dev'),
+  applicationName: 'butov.dev',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    url: 'https://butov.dev',
+    siteName: 'butov.dev',
+    title: 'Ruslan Butov | Senior Software Engineer',
+    description:
+      'Ruslan Butov — Senior Software Engineer based in the San Francisco Bay Area.',
+    images: [
+      { url: '/og-image.png', width: 1200, height: 630, alt: 'butov.dev' },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.png'],
+  },
 };
 
 export const viewport = {
@@ -40,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           >
             <header className="flex h-9 items-center gap-3 px-3.5">
               <WindowControls />
+              <Logo />
               <ThemeToggle />
             </header>
             <div className="editor-surface mx-2 mb-2 rounded-xl px-2 py-6 sm:px-6">
