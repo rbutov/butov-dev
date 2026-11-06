@@ -390,7 +390,8 @@ body {
   }
 }
 
-/* butov.dev mark in the title bar: follows the theme like the rest of the chrome */
+/* butov.dev mark in the title bar: pure black and white only.
+   Light theme: black tile, white mark. Dark theme: white tile, black mark. */
 .site-logo {
   display: block;
   flex-shrink: 0;
@@ -400,10 +401,16 @@ body {
   display: block;
 }
 .site-logo-tile {
-  fill: var(--text);
+  fill: #000000;
 }
 .site-logo-mark {
-  fill: var(--chrome);
+  fill: #ffffff;
+}
+:root[data-theme='dark'] .site-logo-tile {
+  fill: #ffffff;
+}
+:root[data-theme='dark'] .site-logo-mark {
+  fill: #000000;
 }
 .site-logo:focus-visible {
   outline: 2px solid var(--property);
